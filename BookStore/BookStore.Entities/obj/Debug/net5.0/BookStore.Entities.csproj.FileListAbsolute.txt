@@ -1,0 +1,15 @@
+C:\Users\firatalcin\Documents\GitHub\BookStoreProject\BookStore\BookStore.Entities\bin\Debug\net5.0\BookStore.Entities.deps.json
+C:\Users\firatalcin\Documents\GitHub\BookStoreProject\BookStore\BookStore.Entities\bin\Debug\net5.0\BookStore.Entities.runtimeconfig.json
+C:\Users\firatalcin\Documents\GitHub\BookStoreProject\BookStore\BookStore.Entities\bin\Debug\net5.0\BookStore.Entities.runtimeconfig.dev.json
+C:\Users\firatalcin\Documents\GitHub\BookStoreProject\BookStore\BookStore.Entities\bin\Debug\net5.0\BookStore.Entities.dll
+C:\Users\firatalcin\Documents\GitHub\BookStoreProject\BookStore\BookStore.Entities\bin\Debug\net5.0\BookStore.Entities.pdb
+C:\Users\firatalcin\Documents\GitHub\BookStoreProject\BookStore\BookStore.Entities\obj\Debug\net5.0\BookStore.Entities.csproj.AssemblyReference.cache
+C:\Users\firatalcin\Documents\GitHub\BookStoreProject\BookStore\BookStore.Entities\obj\Debug\net5.0\BookStore.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\firatalcin\Documents\GitHub\BookStoreProject\BookStore\BookStore.Entities\obj\Debug\net5.0\BookStore.Entities.AssemblyInfoInputs.cache
+C:\Users\firatalcin\Documents\GitHub\BookStoreProject\BookStore\BookStore.Entities\obj\Debug\net5.0\BookStore.Entities.AssemblyInfo.cs
+C:\Users\firatalcin\Documents\GitHub\BookStoreProject\BookStore\BookStore.Entities\obj\Debug\net5.0\BookStore.Entities.csproj.CoreCompileInputs.cache
+C:\Users\firatalcin\Documents\GitHub\BookStoreProject\BookStore\BookStore.Entities\obj\Debug\net5.0\BookStore.Entities.dll
+C:\Users\firatalcin\Documents\GitHub\BookStoreProject\BookStore\BookStore.Entities\obj\Debug\net5.0\refint\BookStore.Entities.dll
+C:\Users\firatalcin\Documents\GitHub\BookStoreProject\BookStore\BookStore.Entities\obj\Debug\net5.0\BookStore.Entities.pdb
+C:\Users\firatalcin\Documents\GitHub\BookStoreProject\BookStore\BookStore.Entities\obj\Debug\net5.0\BookStore.Entities.genruntimeconfig.cache
+C:\Users\firatalcin\Documents\GitHub\BookStoreProject\BookStore\BookStore.Entities\obj\Debug\net5.0\ref\BookStore.Entities.dll
