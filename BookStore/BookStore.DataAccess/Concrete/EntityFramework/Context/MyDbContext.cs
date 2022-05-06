@@ -19,15 +19,15 @@ namespace BookStore.DataAccess.Concrete.EntityFramework.Context
         public DbSet<Book> Books { get; set; }
         public DbSet<BookDetail> BookDetails { get; set; }
         public DbSet<Cart> Carts { get; set; }
-        public DbSet<CartBook> CartBooks { get; set; }
+        public DbSet<Book_Carts> Book_Carts { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<UserType> UserTypes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<CartBook>().HasOne(x => x.Book).WithMany(b => b.CartBooks).HasForeignKey(x => x.BookId);
-            modelBuilder.Entity<CartBook>().HasOne(x => x.Cart).WithMany(b => b.CartBooks).HasForeignKey(x => x.CartId);
+            modelBuilder.Entity<Book_Carts>().HasOne(x => x.Book).WithMany(b => b.Cart_Books).HasForeignKey(x => x.BookId).OnDelete(DeleteBehavior.ClientCascade);
+            modelBuilder.Entity<Book_Carts>().HasOne(x => x.Cart).WithMany(b => b.Cart_Books).HasForeignKey(x => x.CartId).OnDelete(DeleteBehavior.ClientCascade);
         }
     }
 }

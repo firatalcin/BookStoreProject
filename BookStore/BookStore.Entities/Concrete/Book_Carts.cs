@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace BookStore.Entities.Concrete
 {
-    public class CartBook : BaseEntity
+    public class Book_Carts : BaseEntity
     {
-        public int CartId { get; set; }
         public int BookId { get; set; }
+        public int CartId { get; set; }
+       
 
         //Relational
 
