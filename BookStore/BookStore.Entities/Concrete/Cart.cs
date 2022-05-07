@@ -19,7 +19,7 @@ namespace BookStore.Entities.Concrete
         public Book Book { get; set; }
         public User User { get; set; }
 
-        public List<Book_Carts> Cart_Books { get; set; }
+        public List<Book_Cart> Cart_Books { get; set; }
 
     }
 }

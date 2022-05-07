@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BookStore.Entities.Concrete
 {
-    public class Book_Carts : BaseEntity
+    public class Book_Cart : BaseEntity
     {
         public int BookId { get; set; }
         public int CartId { get; set; }

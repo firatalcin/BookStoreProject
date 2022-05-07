@@ -8,7 +8,7 @@ namespace BookStore.Entities.Enums
 {
     public enum Role
     {
-        Admin,
-        Customer
+        Admin = 1,
+        Customer = 2
     }
 }

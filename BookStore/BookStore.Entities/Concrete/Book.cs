@@ -18,10 +18,10 @@ namespace BookStore.Entities.Concrete
 
         //Relational
 
-        public Author Author { get; set; }
+        public Book Author { get; set; }
         public Genre Genre { get; set; }
         public BookDetail BookDetail { get; set; }
 
-        public List<Book_Carts> Cart_Books { get; set; }
+        public List<Book_Cart> Cart_Books { get; set; }
     }
 }
