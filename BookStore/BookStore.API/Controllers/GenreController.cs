@@ -28,6 +28,7 @@ namespace BookStore.API.Controllers
         [HttpPost(Name = "AddGenre")]
         public IActionResult AddGenre([FromBody] Genre genre)
         {
+            genre.Books = null;
             _genreService.Add(genre);
             return Ok();
         }

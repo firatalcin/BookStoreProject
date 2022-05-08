@@ -14,6 +14,11 @@ namespace BookStore.Entities.Concrete
         public int BookId { get; set; }
         public int UserId { get; set; }
 
+        public Cart()
+        {
+            Cart_Books = new HashSet<Book_Cart>();
+        }
+
         //Relational
 
         public Book Book { get; set; }

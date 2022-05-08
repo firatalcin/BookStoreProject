@@ -17,10 +17,14 @@ namespace BookStore.Entities.Concrete
         public int GenreId { get; set; }
         public int BookDetailId { get; set; }
 
+        public Book()
+        {
+            Cart_Books = new HashSet<Book_Cart>();
+        }
+
         //Relational
 
         public Author Author { get; set; }
-        [ForeignKey("GenreId")]
         public Genre Genre { get; set; }
         public BookDetail BookDetail { get; set; }
 

@@ -11,6 +11,11 @@ namespace BookStore.Entities.Concrete
         public string AuthorName { get; set; }
         public string AuthorSurname { get; set; }
 
+        public Author()
+        {
+            Books = new HashSet<Book>();
+        }
+
         //Relational
 
         public ICollection<Book> Books { get; set; }

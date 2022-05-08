@@ -15,7 +15,7 @@ namespace BookStore.DataAccess.Concrete.EntityFramework.Context
             optionsBuilder.UseSqlServer(@"server=DESKTOP-MVQ36J3\SQLEXPRESS;database=BookStore;Trusted_Connection=True");
         }
 
-        public DbSet<Book> Authors { get; set; }
+        public DbSet<Author> Authors { get; set; }
         public DbSet<Book> Books { get; set; }
         public DbSet<BookDetail> BookDetails { get; set; }
         public DbSet<Cart> Carts { get; set; }

@@ -4,14 +4,16 @@ using BookStore.DataAccess.Concrete.EntityFramework.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BookStore.DataAccess.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    partial class MyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220508161959_changebooktable")]
+    partial class changebooktable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,7 +45,7 @@ namespace BookStore.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Authors");
+                    b.ToTable("Author");
                 });
 
             modelBuilder.Entity("BookStore.Entities.Concrete.Book", b =>
@@ -92,7 +94,7 @@ namespace BookStore.DataAccess.Migrations
 
                     b.HasIndex("GenreId");
 
-                    b.ToTable("Books");
+                    b.ToTable("Book");
                 });
 
             modelBuilder.Entity("BookStore.Entities.Concrete.BookDetail", b =>
