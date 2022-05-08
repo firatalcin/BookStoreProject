@@ -13,6 +13,6 @@ namespace BookStore.Entities.Concrete
 
         //Relational
 
-        public List<Book> Books { get; set; }
+        public ICollection<Book> Books { get; set; }
     }
 }

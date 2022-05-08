@@ -1,3 +1,7 @@
+using BookStore.Business.Abstract;
+using BookStore.Business.Concrete;
+using BookStore.DataAccess.Abstract;
+using BookStore.DataAccess.Concrete.EntityFramework;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,6 +32,8 @@ namespace BookStore.API
         {
 
             services.AddControllers();
+            services.AddSingleton<IGenreService, GenreManager>();
+            services.AddSingleton<IGenreDal, EfGenreDal>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BookStore.API", Version = "v1" });

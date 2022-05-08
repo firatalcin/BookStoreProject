@@ -43,7 +43,7 @@ namespace BookStore.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Authors");
+                    b.ToTable("Author");
                 });
 
             modelBuilder.Entity("BookStore.Entities.Concrete.Book", b =>
@@ -92,7 +92,7 @@ namespace BookStore.DataAccess.Migrations
 
                     b.HasIndex("GenreId");
 
-                    b.ToTable("Books");
+                    b.ToTable("Book");
                 });
 
             modelBuilder.Entity("BookStore.Entities.Concrete.BookDetail", b =>
@@ -122,7 +122,7 @@ namespace BookStore.DataAccess.Migrations
                     b.ToTable("BookDetails");
                 });
 
-            modelBuilder.Entity("BookStore.Entities.Concrete.Book_Carts", b =>
+            modelBuilder.Entity("BookStore.Entities.Concrete.Book_Cart", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -304,7 +304,7 @@ namespace BookStore.DataAccess.Migrations
                     b.Navigation("Genre");
                 });
 
-            modelBuilder.Entity("BookStore.Entities.Concrete.Book_Carts", b =>
+            modelBuilder.Entity("BookStore.Entities.Concrete.Book_Cart", b =>
                 {
                     b.HasOne("BookStore.Entities.Concrete.Book", "Book")
                         .WithMany("Cart_Books")

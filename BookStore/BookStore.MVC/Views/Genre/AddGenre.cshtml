@@ -1,0 +1,21 @@
+﻿@using BookStore.Entities.Concrete
+@model Genre
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddGenre</title>
+</head>
+<body>
+    <form asp-action="AddGenre" asp-controller="Genre" method="post">
+        <label asp-for=Name>Name</label> <br />
+        <input asp-for="Name" type="text"/> <br />
+        <button type="submit">Kaydet</button>
+    </form>
+</body>
+</html>

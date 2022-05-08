@@ -1,0 +1,22 @@
+﻿@using BookStore.Entities.Concrete
+@model List<Genre>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <ul>
+        @foreach (var item in Model)
+       {
+           <li>@item.Name</li>
+       }       
+    </ul>
+</body>
+</html>

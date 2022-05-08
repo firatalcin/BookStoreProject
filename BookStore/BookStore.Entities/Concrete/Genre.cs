@@ -11,7 +11,6 @@ namespace BookStore.Entities.Concrete
         public string Name { get; set; }
 
         //Relational
-
-        public List<Book> Books { get; set; }
+        public ICollection<Book> Books { get; set; }
     }
 }

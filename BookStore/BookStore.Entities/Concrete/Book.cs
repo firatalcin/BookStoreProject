@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,10 +19,11 @@ namespace BookStore.Entities.Concrete
 
         //Relational
 
-        public Book Author { get; set; }
+        public Author Author { get; set; }
+        [ForeignKey("GenreId")]
         public Genre Genre { get; set; }
         public BookDetail BookDetail { get; set; }
 
-        public List<Book_Cart> Cart_Books { get; set; }
+        public ICollection<Book_Cart> Cart_Books { get; set; }
     }
 }

@@ -33,6 +33,9 @@
     ".NETCoreApp,Version=v5.0": {
       "BookStore.API/1.0.0": {
         "dependencies": {
+          "BookStore.Business": "1.0.0",
+          "BookStore.DataAccess": "1.0.0",
+          "BookStore.Entities": "1.0.0",
           "Microsoft.EntityFrameworkCore": "5.0.12",
           "Microsoft.EntityFrameworkCore.Design": "5.0.12",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.12",
@@ -1372,6 +1375,45 @@
           "System.Threading": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0",
           "System.Xml.XmlDocument": "4.3.0"
+        }
+      },
+      "BookStore.Business/1.0.0": {
+        "dependencies": {
+          "BookStore.DataAccess": "1.0.0",
+          "BookStore.Entities": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "5.0.12",
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.12"
+        },
+        "runtime": {
+          "BookStore.Business.dll": {}
+        },
+        "compile": {
+          "BookStore.Business.dll": {}
+        }
+      },
+      "BookStore.DataAccess/1.0.0": {
+        "dependencies": {
+          "BookStore.Entities": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "5.0.12",
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.12"
+        },
+        "runtime": {
+          "BookStore.DataAccess.dll": {}
+        },
+        "compile": {
+          "BookStore.DataAccess.dll": {}
+        }
+      },
+      "BookStore.Entities/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "5.0.12",
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.12"
+        },
+        "runtime": {
+          "BookStore.Entities.dll": {}
+        },
+        "compile": {
+          "BookStore.Entities.dll": {}
         }
       },
       "Microsoft.AspNetCore.Antiforgery/5.0.0.0": {
@@ -3788,6 +3830,21 @@
       "sha512": "sha512-MYoTCP7EZ98RrANESW05J5ZwskKDoN0AuZ06ZflnowE50LTpbR5yRg3tHckTVm5j/m47stuGgCrCHWePyHS70Q==",
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    },
+    "BookStore.Business/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BookStore.DataAccess/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "BookStore.Entities/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "Microsoft.AspNetCore.Antiforgery/5.0.0.0": {
       "type": "referenceassembly",

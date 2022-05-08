@@ -1593,6 +1593,51 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
+      },
+      "BookStore.Business/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "BookStore.DataAccess": "1.0.0",
+          "BookStore.Entities": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "5.0.12",
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.12"
+        },
+        "compile": {
+          "bin/placeholder/BookStore.Business.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BookStore.Business.dll": {}
+        }
+      },
+      "BookStore.DataAccess/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "BookStore.Entities": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "5.0.12",
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.12"
+        },
+        "compile": {
+          "bin/placeholder/BookStore.DataAccess.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BookStore.DataAccess.dll": {}
+        }
+      },
+      "BookStore.Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "5.0.12",
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.12"
+        },
+        "compile": {
+          "bin/placeholder/BookStore.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BookStore.Entities.dll": {}
+        }
       }
     }
   },
@@ -5968,10 +6013,28 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
+    },
+    "BookStore.Business/1.0.0": {
+      "type": "project",
+      "path": "../BookStore.Business/BookStore.Business.csproj",
+      "msbuildProject": "../BookStore.Business/BookStore.Business.csproj"
+    },
+    "BookStore.DataAccess/1.0.0": {
+      "type": "project",
+      "path": "../BookStore.DataAccess/BookStore.DataAccess.csproj",
+      "msbuildProject": "../BookStore.DataAccess/BookStore.DataAccess.csproj"
+    },
+    "BookStore.Entities/1.0.0": {
+      "type": "project",
+      "path": "../BookStore.Entities/BookStore.Entities.csproj",
+      "msbuildProject": "../BookStore.Entities/BookStore.Entities.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "BookStore.Business >= 1.0.0",
+      "BookStore.DataAccess >= 1.0.0",
+      "BookStore.Entities >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 5.0.12",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.12",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.12",
@@ -6010,7 +6073,17 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\firatalcin\\Documents\\GitHub\\BookStoreProject\\BookStore\\BookStore.Business\\BookStore.Business.csproj": {
+              "projectPath": "C:\\Users\\firatalcin\\Documents\\GitHub\\BookStoreProject\\BookStore\\BookStore.Business\\BookStore.Business.csproj"
+            },
+            "C:\\Users\\firatalcin\\Documents\\GitHub\\BookStoreProject\\BookStore\\BookStore.DataAccess\\BookStore.DataAccess.csproj": {
+              "projectPath": "C:\\Users\\firatalcin\\Documents\\GitHub\\BookStoreProject\\BookStore\\BookStore.DataAccess\\BookStore.DataAccess.csproj"
+            },
+            "C:\\Users\\firatalcin\\Documents\\GitHub\\BookStoreProject\\BookStore\\BookStore.Entities\\BookStore.Entities.csproj": {
+              "projectPath": "C:\\Users\\firatalcin\\Documents\\GitHub\\BookStoreProject\\BookStore\\BookStore.Entities\\BookStore.Entities.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
