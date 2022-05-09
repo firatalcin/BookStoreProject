@@ -37,6 +37,10 @@ namespace BookStore.API
 
             services.AddSingleton<IAuthorService, AuthorManager>();
             services.AddSingleton<IAuthorDal, EfAuthorDal>();
+
+            services.AddSingleton<IBookDetailService, BookDetailManager>();
+            services.AddSingleton<IBookDetailDal, EfBookDetailDal>();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BookStore.API", Version = "v1" });

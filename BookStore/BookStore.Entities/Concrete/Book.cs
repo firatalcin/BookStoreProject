@@ -14,13 +14,7 @@ namespace BookStore.Entities.Concrete
         public int UnitsInStock { get; set; }
         public int PageCount { get; set; }
         public int AuthorId { get; set; }
-        public int GenreId { get; set; }
-        public int BookDetailId { get; set; }
-
-        public Book()
-        {
-            Cart_Books = new HashSet<Book_Cart>();
-        }
+        public int GenreId { get; set; }      
 
         //Relational
 
