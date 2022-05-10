@@ -30,11 +30,30 @@ namespace BookStore.API.Controllers
             return Ok(bookDetail);
         }
 
-        //[HttpPost]
-        //public IActionResult AddBookDetail([FromBody] BookDetail bookDetail)
-        //{
-        //    bookDetail.Book = 
-        //    _bookDetailService.Add(bookDetail);
-        //}
+        [HttpPost]
+        public IActionResult AddBookDetail([FromBody] BookDetail bookDetail)
+        {
+            bookDetail.Book = null;
+            _bookDetailService.Add(bookDetail);
+            return Ok();
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult EditBookDetail(int id, [FromBody] BookDetail bookDetail)
+        {
+            var updatedBookDetail = _bookDetailService.Get(id);
+            updatedBookDetail.BookId = bookDetail.BookId;
+            updatedBookDetail.PublishedDate = bookDetail.PublishedDate;
+            updatedBookDetail.PublisherName = bookDetail.PublisherName;
+            _bookDetailService.Update(updatedBookDetail);
+            return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult RemoveBookDetail(int id)
+        {
+            _bookDetailService.Delete(id);
+            return Ok();
+        }
     }
 }

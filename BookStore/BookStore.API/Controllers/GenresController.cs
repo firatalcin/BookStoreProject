@@ -45,7 +45,7 @@ namespace BookStore.API.Controllers
         public IActionResult EditGenre(int id, [FromBody] Genre genre)
         {
             var updatedGenre = _genreService.Get(id);
-            updatedGenre.Name = updatedGenre.Name == "string" ? updatedGenre.Name : genre.Name;
+            updatedGenre.Name = updatedGenre.Name == null ? updatedGenre.Name : genre.Name;
             _genreService.Update(updatedGenre);
             return Ok();
         }

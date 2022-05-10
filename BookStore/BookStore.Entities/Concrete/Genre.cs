@@ -10,11 +10,7 @@ namespace BookStore.Entities.Concrete
     {
         public string Name { get; set; }
 
-        public Genre()
-        {
-               Books = new HashSet<Book>();
-        }
-
+ 
         //Relational
         public ICollection<Book> Books { get; set; }
     }

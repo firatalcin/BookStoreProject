@@ -28,7 +28,7 @@ namespace BookStore.DataAccess.Concrete.EntityFramework.Context
         {
             modelBuilder.Entity<Book_Cart>().HasOne(x => x.Book).WithMany(b => b.Cart_Books).HasForeignKey(x => x.BookId).OnDelete(DeleteBehavior.ClientCascade);
             modelBuilder.Entity<Book_Cart>().HasOne(x => x.Cart).WithMany(b => b.Cart_Books).HasForeignKey(x => x.CartId).OnDelete(DeleteBehavior.ClientCascade);
-            modelBuilder.Entity<BookDetail>().HasOne(x => x.Book).WithOne(b => b.BookDetail).HasForeignKey<BookDetail>(x => x.BookID).OnDelete(DeleteBehavior.ClientCascade);
+            modelBuilder.Entity<BookDetail>().HasOne(x => x.Book).WithOne(b => b.BookDetail).HasForeignKey<BookDetail>(x => x.BookId).OnDelete(DeleteBehavior.ClientCascade);
         }
     }
 }

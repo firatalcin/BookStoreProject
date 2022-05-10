@@ -11,10 +11,7 @@ namespace BookStore.Entities.Concrete
     {
         public Role Role { get; set; }
 
-        public UserType()
-        {
-               Users = new HashSet<User>();
-        }
+       
 
         //Relational
 

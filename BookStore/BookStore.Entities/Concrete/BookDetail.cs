@@ -8,7 +8,7 @@ namespace BookStore.Entities.Concrete
 {
     public class BookDetail : BaseEntity
     {
-        public int BookID { get; set; }
+        public int BookId { get; set; }
         public string PublisherName { get; set; }
         public DateTime? PublishedDate { get; set; }
         
