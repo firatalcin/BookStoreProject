@@ -42,11 +42,10 @@ namespace BookStore.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult EditGenre(int id, [FromBody] Genre genre)
+        public IActionResult EditGenre([FromBody] Genre genre)
         {
-            var updatedGenre = _genreService.Get(id);
-            updatedGenre.Name = updatedGenre.Name == null ? updatedGenre.Name : genre.Name;
-            _genreService.Update(updatedGenre);
+          
+            _genreService.Update(genre);
             return Ok();
         }
 

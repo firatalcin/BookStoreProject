@@ -10,6 +10,11 @@ namespace BookStore.Business.Concrete
     {
         IUserDal _userDal;
 
+        public UserManager(IUserDal userDal)
+        {
+            _userDal = userDal;
+        }
+
         public void Add(User entity)
         {
             _userDal.Add(entity);

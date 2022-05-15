@@ -43,16 +43,9 @@ namespace BookStore.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult EditBook(int id, [FromBody] Book book)
+        public IActionResult EditBook([FromBody] Book book)
         {
-            var updatedBook = _bookService.Get(id);
-            updatedBook.BookName = book.BookName;
-            updatedBook.AuthorId = book.AuthorId;
-            updatedBook.GenreId = book.GenreId;
-            updatedBook.UnitPrice = book.UnitPrice;
-            updatedBook.UnitsInStock = book.UnitsInStock;
-            updatedBook.PageCount = book.PageCount;
-            _bookService.Update(updatedBook);
+            _bookService.Update(book);
             return Ok();
         }
 

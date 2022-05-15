@@ -31,12 +31,9 @@ namespace BookStore.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult EditAuthor(int id, [FromBody] Author author)
+        public IActionResult EditAuthor([FromBody] Author author)
         {
-            var UpdatedAuthor = _authorService.Get(id);
-            UpdatedAuthor.AuthorName = UpdatedAuthor.AuthorName == default ? UpdatedAuthor.AuthorName : author.AuthorName;
-            UpdatedAuthor.AuthorSurname = UpdatedAuthor.AuthorSurname == default ? UpdatedAuthor.AuthorSurname : author.AuthorSurname;
-            _authorService.Update(UpdatedAuthor);
+            _authorService.Update(author);
             return Ok();
         }
 
