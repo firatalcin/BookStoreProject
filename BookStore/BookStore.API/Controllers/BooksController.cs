@@ -34,7 +34,6 @@ namespace BookStore.API.Controllers
         [HttpPost]
         public IActionResult AddBook([FromBody] Book book)
         {
-            book.Cart_Books = null;
             book.Author = null;
             book.Genre = null;
             book.BookDetail = null;

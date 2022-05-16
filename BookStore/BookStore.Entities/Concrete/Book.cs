@@ -22,6 +22,5 @@ namespace BookStore.Entities.Concrete
         public Genre Genre { get; set; }
         public BookDetail BookDetail { get; set; }
 
-        public ICollection<Book_Cart> Cart_Books { get; set; }
     }
 }
