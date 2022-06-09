@@ -1,2 +1,2 @@
 # BookStoreProject
-Net 5 (API and MVC) Basic BookStore Site
+Net 6 API Basic BookStore Site
