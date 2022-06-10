@@ -7,10 +7,14 @@ using System.Threading.Tasks;
 
 namespace Entities.Model
 {
-    public class Genre : BaseEntity
+    public class Order : BaseEntity
     {
-        public string Name { get; set; }
+        public Guid BookId { get; set; }
+        public Guid UserId { get; set; }
+        public int TotalPrice { get; set; }
+        public int Quantity { get; set; }
 
         public ICollection<Book> Books { get; set; }
+        public User User { get; set; }
     }
 }

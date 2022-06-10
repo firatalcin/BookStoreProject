@@ -13,9 +13,11 @@ namespace Entities.Model
         public int Price { get; set; }
         public int Stock { get; set; }
         public int PageCount { get; set; }
-        public int AuthorId { get; set; }
-        public int GenreId { get; set; }
+        public Guid AuthorId { get; set; }
+        public Guid GenreId { get; set; }
 
         public Author Author { get; set; }
+        public Genre Genre { get; set; }
+        public ICollection<Order> Orders { get; set; }
     }
 }
