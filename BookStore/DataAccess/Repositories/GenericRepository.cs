@@ -1,4 +1,6 @@
-﻿using Entities.Common;
+﻿using DataAccess.Contexts;
+using Entities.Common;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,29 +12,36 @@ namespace DataAccess.Repositories
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity, new()
     {
-        public Task AddAsync(T entity)
+        private readonly BookStoreDbContext _context;
+
+        public GenericRepository(BookStoreDbContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
+        }
+
+        public async Task AddAsync(T entity)
+        {
+            await _context.AddAsync(entity);
         }
 
         public void Delete(T entity)
         {
-            throw new NotImplementedException();
+            _context.Remove(entity);
         }
 
         public IQueryable<T> GetAll(Expression<Func<T, bool>> filter = null)
         {
-            throw new NotImplementedException();
+            return filter == null ? _context.Set<T>().AsQueryable() : _context.Set<T>().Where(filter).AsQueryable();
         }
 
-        public Task<T> GetAsync(Expression<Func<T, bool>> filter)
+        public async Task<T> GetAsync(Expression<Func<T, bool>> filter)
         {
-            throw new NotImplementedException();
+            return await _context.Set<T>().FirstOrDefaultAsync(filter);
         }
 
         public void Update(T entity)
         {
-            throw new NotImplementedException();
+            _context.Set<T>().Update(entity);
         }
     }
 }

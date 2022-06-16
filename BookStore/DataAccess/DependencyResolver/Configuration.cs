@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.DependencyResolver
 {
-    internal static class Configuration
+    public static class Configuration
     {
         public static string ConnectionString
         {
