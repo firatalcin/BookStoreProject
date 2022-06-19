@@ -1,10 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "AJ73iowK1T+ej47Q46tQPw9WlSEjPp0SeqTMgzar1M3DNOVK+5AwWFaE6UmIUUdEod4V/GvkrKZ7Iag9bbDhgw==",
+  "dgSpecHash": "JrvHNYs1MZsYvwsw4xEXxwso8AvTyValOmrEnicXGJL0vsDP4YFJtL3f6D3i47egn7Yy4N9zkJEmihz7/g0p/A==",
   "success": true,
   "projectFilePath": "C:\\Users\\firatalcin\\Documents\\GitHub\\BookStoreProject\\BookStore\\Business\\Business.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\firatalcin\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\firatalcin\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
+    "C:\\Users\\firatalcin\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+    "C:\\Users\\firatalcin\\.nuget\\packages\\fluentvalidation\\11.0.3\\fluentvalidation.11.0.3.nupkg.sha512",
+    "C:\\Users\\firatalcin\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.0.3\\fluentvalidation.aspnetcore.11.0.3.nupkg.sha512",
+    "C:\\Users\\firatalcin\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.0.3\\fluentvalidation.dependencyinjectionextensions.11.0.3.nupkg.sha512",
+    "C:\\Users\\firatalcin\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\firatalcin\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\firatalcin\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "C:\\Users\\firatalcin\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.5\\microsoft.entityframeworkcore.6.0.5.nupkg.sha512",

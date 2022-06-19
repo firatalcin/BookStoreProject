@@ -2,7 +2,7 @@
 
 namespace Core.Repositories
 {
-    public interface IUserRepository : IGenericRepository<Author>
+    public interface IUserRepository : IGenericRepository<User>
     {
     }
 }

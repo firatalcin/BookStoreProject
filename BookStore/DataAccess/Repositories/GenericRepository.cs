@@ -27,7 +27,9 @@ namespace DataAccess.Repositories
 
         public IQueryable<T> GetAll(Expression<Func<T, bool>> filter = null)
         {
-            return filter == null ? _context.Set<T>().AsNoTracking().AsQueryable() : _context.Set<T>().Where(filter).AsQueryable();
+            return filter == null ?
+                _context.Set<T>().AsNoTracking().AsQueryable() :
+                _context.Set<T>().Where(filter).AsQueryable();
         }
 
         public async Task<T> GetAsync(Expression<Func<T, bool>> filter)

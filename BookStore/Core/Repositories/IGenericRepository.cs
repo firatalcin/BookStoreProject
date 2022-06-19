@@ -10,7 +10,7 @@ namespace Core.Repositories
 {
     public interface IGenericRepository<T> where T : BaseEntity
     {
-        IQueryable<T> GetAll(Expression<Func<T, bool>>? filter = null);
+        IQueryable<T> GetAll(Expression<Func<T, bool>> filter = null);
 
         Task<T> GetAsync(Expression<Func<T, bool>> filter);
 
