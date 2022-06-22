@@ -12,7 +12,7 @@ namespace Business.Validations
     {
         public GenreValidator()
         {
-            RuleFor(x => x.Name).NotNull().NotEmpty().WithMessage("Bu Alan Boş Geçilemez");
+            RuleFor(x => x.Name).NotEmpty().WithMessage("Bu Alan Boş Geçilemez");
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Business.Validations;
 using Core.DTOs;
 using Core.Model;
 using Core.Services;
