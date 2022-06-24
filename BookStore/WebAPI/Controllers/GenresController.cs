@@ -25,7 +25,7 @@ namespace WebAPI.Controllers
         public async Task<IActionResult> GetAll()
         {
             var genres = await _service.GetAllAsync();
-            var genresDtos = _mapper.Map<List<GenreListDto>>(genres.ToList());
+            var genresDtos = _mapper.Map<List<GenreListDto>>(genres);
             return Ok(genresDtos);
         }
 
