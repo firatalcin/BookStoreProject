@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
+using Business.Extensions;
 using Core.DTOs;
 using Core.Model;
 using Core.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
@@ -41,9 +41,7 @@ namespace WebAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> Save(OrderAddDto dto)
         {
-            var book = await _bookService.GetByIdAsync(dto.BookId);
-            dto.TotalPrice = book.Price * dto.Quantity;
-            book.Stock -= dto.Quantity;
+            await OrderExtension.AddEx(_bookService, dto, _mapper);
             await _orderService.AddAsync(_mapper.Map<Order>(dto));
             return Ok();
         }
@@ -51,9 +49,7 @@ namespace WebAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
-            var order = await _orderService.GetByIdAsync(id);
-            var book = await _bookService.GetByIdAsync(order.BookId);
-            book.Stock += order.Quantity;
+            var order = await OrderExtension.DeleteEx(_orderService, _bookService, id);
             await _orderService.RemoveAsync(order);
             return Ok();
         }
@@ -61,22 +57,7 @@ namespace WebAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(OrderUpdateDto dto, int id)
         {
-            var order = await _orderService.GetByIdAsync(id);
-            var book = await _bookService.GetByIdAsync(order.BookId);
-            var total1 = dto.Quantity - order.Quantity;
-            var total2 = order.Quantity - dto.Quantity;
-
-            if (dto.Quantity > order.Quantity)
-            {
-                book.Stock -= total1;
-                order.TotalPrice += total1 * book.Price;
-            }
-            else if (dto.Quantity < order.Quantity)
-            {
-                book.Stock += total2;
-                order.TotalPrice -= total2 * book.Price;
-            }
-            order.Quantity = dto.Quantity;
+            var order = await OrderExtension.UpdateEx(_orderService, _bookService, dto, id);
             await _orderService.UpdateAsync(order);
             return Ok();
         }
