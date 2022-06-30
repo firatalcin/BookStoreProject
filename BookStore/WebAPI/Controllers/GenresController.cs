@@ -3,6 +3,7 @@ using Business.Validations;
 using Core.DTOs;
 using Core.Model;
 using Core.Services;
+using FluentValidation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,11 +15,13 @@ namespace WebAPI.Controllers
     {
         private readonly IGenericService<Genre> _service;
         private readonly IMapper _mapper;
+        private readonly IValidator<Genre> _genreValidator;
 
-        public GenresController(IGenreService service, IMapper mapper)
+        public GenresController(IGenreService service, IMapper mapper, IValidator<Genre> genreValidator)
         {
             _service = service;
             _mapper = mapper;
+            _genreValidator = genreValidator;
         }
 
         [HttpGet]
@@ -40,15 +43,25 @@ namespace WebAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> Save(GenreAddDto genreDto)
         {
-            await _service.AddAsync(_mapper.Map<Genre>(genreDto));
-            return Ok();
+            var result = _genreValidator.Validate(_mapper.Map<Genre>(genreDto));
+            if (result.IsValid)
+            {
+                await _service.AddAsync(_mapper.Map<Genre>(genreDto));
+                return Ok();
+            }
+            return BadRequest();
         }
 
         [HttpPut]
         public async Task<IActionResult> Update(GenreUpdateDto genreDto)
         {
-            await _service.UpdateAsync(_mapper.Map<Genre>(genreDto));
-            return Ok();
+            var result = _genreValidator.Validate(_mapper.Map<Genre>(genreDto));
+            if (result.IsValid)
+            {
+                await _service.UpdateAsync(_mapper.Map<Genre>(genreDto));
+                return Ok();
+            }
+            return BadRequest();
         }
 
         [HttpDelete("{id}")]
