@@ -3,6 +3,7 @@ using Business.Extensions;
 using Core.DTOs;
 using Core.Model;
 using Core.Services;
+using FluentValidation;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
@@ -14,12 +15,14 @@ namespace WebAPI.Controllers
         private readonly IOrderService _orderService;
         private readonly IBookService _bookService;
         private readonly IMapper _mapper;
+        private readonly IValidator<Order> _orderValidator;
 
-        public OrdersController(IOrderService orderService, IBookService bookService, IMapper mapper)
+        public OrdersController(IOrderService orderService, IBookService bookService, IMapper mapper, IValidator<Order> orderValidator)
         {
             _orderService = orderService;
             _bookService = bookService;
             _mapper = mapper;
+            _orderValidator = orderValidator;
         }
 
         [HttpGet]
@@ -41,9 +44,14 @@ namespace WebAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> Save(OrderAddDto dto)
         {
-            await OrderExtension.AddEx(_bookService, dto, _mapper);
-            await _orderService.AddAsync(_mapper.Map<Order>(dto));
-            return Ok();
+            var result = _orderValidator.Validate(_mapper.Map<Order>(dto));
+            if (result.IsValid)
+            {
+                await OrderExtension.AddEx(_bookService, dto, _mapper);
+                await _orderService.AddAsync(_mapper.Map<Order>(dto));
+                return Ok();
+            }
+            return BadRequest();
         }
 
         [HttpDelete("{id}")]
@@ -57,9 +65,14 @@ namespace WebAPI.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(OrderUpdateDto dto, int id)
         {
-            var order = await OrderExtension.UpdateEx(_orderService, _bookService, dto, id);
-            await _orderService.UpdateAsync(order);
-            return Ok();
+            var result = _orderValidator.Validate(_mapper.Map<Order>(dto));
+            if (result.IsValid)
+            {
+                var order = await OrderExtension.UpdateEx(_orderService, _bookService, dto, id);
+                await _orderService.UpdateAsync(order);
+                return Ok();
+            }
+            return BadRequest();
         }
     }
 }

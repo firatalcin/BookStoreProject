@@ -2,6 +2,7 @@
 using Core.DTOs;
 using Core.Model;
 using Core.Services;
+using FluentValidation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,11 +14,13 @@ namespace WebAPI.Controllers
     {
         private readonly IUserService _userService;
         private readonly IMapper _mapper;
+        private readonly IValidator<User> _userValidator;
 
-        public UsersController(IUserService userService, IMapper mapper)
+        public UsersController(IUserService userService, IMapper mapper, IValidator<User> userValidator)
         {
             _userService = userService;
             _mapper = mapper;
+            _userValidator = userValidator;
         }
 
         [HttpGet]
@@ -39,15 +42,25 @@ namespace WebAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> Save(UserAddDto dto)
         {
-            await _userService.AddAsync(_mapper.Map<User>(dto));
-            return Ok();
+            var result = _userValidator.Validate(_mapper.Map<User>(dto));
+            if (result.IsValid)
+            {
+                await _userService.AddAsync(_mapper.Map<User>(dto));
+                return Ok();
+            }
+            return BadRequest();
         }
 
         [HttpPut]
         public async Task<IActionResult> Update(UserUpdateDto dto)
         {
-            await _userService.UpdateAsync(_mapper.Map<User>(dto));
-            return Ok();
+            var result = _userValidator.Validate(_mapper.Map<User>(dto));
+            if (result.IsValid)
+            {
+                await _userService.UpdateAsync(_mapper.Map<User>(dto));
+                return Ok();
+            }
+            return BadRequest();
         }
 
         [HttpDelete]

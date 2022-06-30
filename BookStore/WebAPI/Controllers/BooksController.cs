@@ -2,6 +2,7 @@
 using Core.DTOs;
 using Core.Model;
 using Core.Services;
+using FluentValidation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,11 +14,13 @@ namespace WebAPI.Controllers
     {
         private readonly IBookService _bookService;
         private readonly IMapper _mapper;
+        private readonly IValidator<Book> _bookValidator;
 
-        public BooksController(IBookService bookService, IMapper mapper)
+        public BooksController(IBookService bookService, IMapper mapper, IValidator<Book> bookValidator)
         {
             _bookService = bookService;
             _mapper = mapper;
+            _bookValidator = bookValidator;
         }
 
         [HttpGet]
@@ -39,15 +42,25 @@ namespace WebAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> Save(BookAddDto dto)
         {
-            await _bookService.AddAsync(_mapper.Map<Book>(dto));
-            return Ok();
+            var result = _bookValidator.Validate(_mapper.Map<Book>(dto));
+            if (result.IsValid)
+            {
+                await _bookService.AddAsync(_mapper.Map<Book>(dto));
+                return Ok();
+            }
+            return BadRequest();
         }
 
         [HttpPut]
         public async Task<IActionResult> Update(BookUpdateDto dto)
         {
-            await _bookService.UpdateAsync(_mapper.Map<Book>(dto));
-            return Ok();
+            var result = _bookValidator.Validate(_mapper.Map<Book>(dto));
+            if (result.IsValid)
+            {
+                await _bookService.UpdateAsync(_mapper.Map<Book>(dto));
+                return Ok();
+            }
+            return BadRequest();
         }
 
         [HttpDelete("{id}")]

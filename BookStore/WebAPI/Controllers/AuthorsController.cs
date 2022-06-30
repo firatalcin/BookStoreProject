@@ -2,6 +2,7 @@
 using Core.DTOs;
 using Core.Model;
 using Core.Services;
+using FluentValidation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,11 +14,13 @@ namespace WebAPI.Controllers
     {
         private readonly IAuthorService _authorService;
         private readonly IMapper _mapper;
+        private readonly IValidator<Author> _authorValidator;
 
-        public AuthorsController(IMapper mapper, IAuthorService authorService)
+        public AuthorsController(IMapper mapper, IAuthorService authorService, IValidator<Author> authorValidator)
         {
             _mapper = mapper;
             _authorService = authorService;
+            _authorValidator = authorValidator;
         }
 
         [HttpGet]
@@ -39,15 +42,25 @@ namespace WebAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> Save(AuthorAddDto dto)
         {
-            await _authorService.AddAsync(_mapper.Map<Author>(dto));
-            return Ok();
+            var result = _authorValidator.Validate(_mapper.Map<Author>(dto));
+            if (result.IsValid)
+            {
+                await _authorService.AddAsync(_mapper.Map<Author>(dto));
+                return Ok();
+            }
+            return BadRequest();
         }
 
         [HttpPut]
         public async Task<IActionResult> Update(AuthorUpdateDto dto)
         {
-            await _authorService.UpdateAsync(_mapper.Map<Author>(dto));
-            return Ok();
+            var result = _authorValidator.Validate(_mapper.Map<Author>(dto));
+            if (result.IsValid)
+            {
+                await _authorService.UpdateAsync(_mapper.Map<Author>(dto));
+                return Ok();
+            }
+            return BadRequest();
         }
 
         [HttpDelete]

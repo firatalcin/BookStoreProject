@@ -10,6 +10,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDependency();
 
 builder.Services.AddSingleton<IValidator<Genre>, GenreValidator>();
+builder.Services.AddSingleton<IValidator<Author>, AuthorValidator>();
+builder.Services.AddSingleton<IValidator<Book>, BookValidator>();
+builder.Services.AddSingleton<IValidator<User>, UserValidator>();
+builder.Services.AddSingleton<IValidator<Order>, OrderValidator>();
 
 builder.Services.AddControllersWithViews().AddFluentValidation(options =>
 {
